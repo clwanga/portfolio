@@ -19,7 +19,7 @@ include 'session.php';
 
 <body>
     <!-- beginning of navbar -->
-    <nav class="navbar navbar-expand-lg text-white">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,8 +28,9 @@ include 'session.php';
                 <div class="navbar-nav mr-auto container pages">
                     <a class="nav-item nav-link active" aria-current="page" href="index.php">Home</a>
                     <a class="nav-item nav-link" href="viewrecords.php">About</a>
+                    <a class="nav-item nav-link" href="viewrecords.php">Services</a>
                     <a class="nav-item nav-link" href="viewrecords.php">Contact</a>
-                    <a class="nav-item nav-link" href="viewrecords.php">Registered Attendees</a>
+                    <a class="nav-item nav-link" href="viewrecords.php">Challenge  <i class="fa fa-trophy fa-spin fa-fw" aria-hidden="true"></i></i></a>
                 </div>
                 <div class="navbar-nav ml-auto">
                     <?php if (!isset($_SESSION['user_id'])) { ?>
@@ -43,4 +44,4 @@ include 'session.php';
         </div>
     </nav>
     <!-- end of navbar -->
-    <div class="container">
+    <div class="container z-index-n1 main_container">
