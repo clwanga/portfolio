@@ -4,7 +4,7 @@
 $host = "localhost";
 $username = "root";
 $password = "1234";
-$dbname = "attendance_app";
+$dbname = "portfolioyangu_db";
 $charset = "utf8mb4";
 
 //remote database connection
@@ -18,7 +18,7 @@ $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
 
 try {
     $pdo = new PDO($dsn, $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //$pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_UPPER);
 
 } catch (PDOException $e) {
     throw new PDOException($e->getMessage());
@@ -33,6 +33,6 @@ $user = new user($pdo);
 $crud = new Crud($pdo);
 
 //create user admin once. should be there once.
-$user->insertUser('admin','clwanga1095@gmail.com', 'Lwanga1012');
+$user->insertUser('clwanga','maungilal@gmail.com', '1234');
 
 ?>

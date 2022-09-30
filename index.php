@@ -5,6 +5,7 @@ require_once 'db/connection.php';
 
 $result = $crud->getSpecialities();
 ?>
+
 <div class="banner">
     <p id="bannerHeader">Charles Maungila</p>
     <p id="supportingText">A Creative Freelancer & Full Stack Developer </p>
@@ -95,7 +96,7 @@ $result = $crud->getSpecialities();
         <div class="col-4">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title text-center"><i class="fa fa-telegram fa-3x fa-spin fa-fw" aria-hidden="true"></i></h5>
+                    <h5 class="card-title text-center"><i class="fa fa-telegram fa-3x" aria-hidden="true"></i></h5>
                     <!-- <h6 class="card-subtitle mb-2 text-muted">Send me an email</h6> -->
                     <div class="row">
                         <div class="col mb-3">
@@ -114,7 +115,7 @@ $result = $crud->getSpecialities();
                             <span class="input-group-text">Message</span>
                             <textarea class="form-control" aria-label="With textarea"></textarea>
                         </div>
-                        <button type="button" class="btn btn-warning">send</button>
+                        <button type="button" class="btn btn-warning" id="send_email">send</button>
                     </div>
                 </div>
             </div>

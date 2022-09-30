@@ -16,15 +16,16 @@ class user
     {
         try {
 
-            $result = $this->getUserByUsername($username);
+            $result = $this->countAvailableUsers($email);
 
             if ($result['num'] > 0) {
                 return false;
             } else {
 
-                $new_password = md5($password.$username);
+                $new_password = md5($password.$email);
+
                 //sql query to insert details of new created users of our system
-                $sql = "INSERT INTO `system_users`(username, email, password) VALUES (:username, :email, :password)";
+                $sql = "INSERT INTO `users_details`(username, email, password) VALUES (:username, :email, :password)";
 
                 //prepare statement for insert
                 $statement = $this->db->prepare($sql);
@@ -46,17 +47,17 @@ class user
     }
 
     //function to get user details
-    public function getUser($username, $password)
+    public function getUser($email, $password)
     {
         try {
             //the sql to query data in our database
-            $sql = "SELECT * FROM `system_users` WHERE username = :username AND password = :password";
+            $sql = "SELECT * FROM `users_details` WHERE email = :email AND password = :password";
 
             //prepare the statement
             $statement = $this->db->prepare($sql);
 
             //bind parameters
-            $statement->bindparam(':username', $username);
+            $statement->bindparam(':email', $email);
             $statement->bindparam(':password', $password);
 
             //execute
@@ -73,18 +74,18 @@ class user
         }
     }
 
-    //another function to get user by username
-    public function getUserByUsername($username)
+    //another function to get user by email
+    public function countAvailableUsers($email)
     {
         try {
             //the sql to query data in our database
-            $sql = "SELECT COUNT(*) AS num FROM `system_users` WHERE username = :username";
+            $sql = "SELECT COUNT(*) AS num FROM `users_details` WHERE email = :email";
 
             //prepare the statement
             $statement = $this->db->prepare($sql);
 
             //bind parameters
-            $statement->bindparam(':username', $username);
+            $statement->bindparam(':email', $email);
 
             //execute
             $statement->execute();
