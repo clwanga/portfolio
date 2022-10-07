@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.container {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.left_aside {
+  background-image: url("bgsignup.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.left_aside a {
+  text-decoration: none;
+  padding: 10px;
+  color: #e9e9e9;
+}
+.left_aside a:hover {
+  cursor: pointer;
+  color: #e2caca;
+}
+.left_aside h6 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: small;
+}
+#signup {
+  background: linear-gradient(#5195ea, #1a429c);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 300px;
+  padding: 7px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  font-size: small;
+}
+#signup:hover {
+  background: #5195ea;
+  color: #0a1b1b;
+}
+form {
+  width: 300px;
+  position: relative;
+  top: 15%;
+  left: 40%;
+}
+.form_head {
+  margin-bottom: 40px;
+}
+.form_head h3 {
+  color: #0a1b1b;
+  font-weight: bold;
+}
+.form_head a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #5195ea;
+}
+.form_head h3 span {
+  color: #5195ea;
+  font-size: large;
+}
+.form_head h6 {
+  color: #a6a5a3;
+  font-size: small;
+}
+.social_media i {
+  color: #5195ea;
+}
+.social_name {
+  color: #a6a5a3;
+  font-size: small;
+}
+.or_text {
+  font-size: small;
+  color: #a6a5a3;
+  line-height: 32px;
+}
+.input-field {
+  width: 300px;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: none;
+  background: #eaeff2;
+  border-radius: 5px;
+  font-size: small;
+  outline: none;
+  color: #0a1b1b;
+}
+.input-field:focus {
+  outline: 3px solid #5195ea;
+  background: white;
+}

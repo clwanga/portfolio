@@ -62,7 +62,7 @@
                 <p>
                 <ul>
                     <li>
-                        <h6>Email Us</h6>
+                        
                     </li>
                 </ul>
                 </p>

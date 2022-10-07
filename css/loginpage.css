@@ -49,13 +49,11 @@
 form{
   width: 300px;
   position: relative;
-  top: 10%;
-  left: 45%;
+  top: 25%;
+  left: 40%;
 }
 #signup{
-  font-size: x-small;
-  color:#fd8c12;
-  font-weight: bold;
+  font-size: small;
   margin-top: 3px;
   margin-bottom: 20px;
 }
@@ -63,14 +61,19 @@ form{
   color: #a6a5a3;
   cursor: pointer;
 }
+#signup p{
+  color: #a6a5a3;
+}
+#signup p span{
+  color: #fd8c12;
+}
 .user_icon{
-  text-align: center;
   color: #fd8c12;
   margin-bottom: 40px;
 }
-.user_icon:hover{
-cursor: pointer;
-color: #a6a5a3;
+.user_icon h6{
+  color: #a6a5a3;
+  font-size: small;
 }
 .social_media i{
   color: #fd8c12;

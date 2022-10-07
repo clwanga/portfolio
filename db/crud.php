@@ -14,24 +14,22 @@ class Crud
     }
 
     //function to insert a new record into the users database
-    public function insertAttendees($fname, $lname, $dob, $email, $contact, $speciality)
+    public function createAccount($full_name, $username, $email, $password)
     {
 
         try {
 
             //define sql statement to be executed
-            $sql = "INSERT INTO users(firstname,lastname,email,phone,birthdate,speciality_id) VALUES(:fname, :lname, :email, :contact, :dob, :speciality)";
+            $sql = "INSERT INTO users_details(full_name,username,email,password) VALUES(:full_name, :username, :email, :password)";
 
             //prepare the sql statement for execution
             $statement = $this->db->prepare($sql);
 
             //bind all placeholders to the actual values
-            $statement->bindparam(':fname', $fname);
-            $statement->bindparam(':lname', $lname);
-            $statement->bindparam(':dob', $dob);
+            $statement->bindparam(':full_name', $full_name);
+            $statement->bindparam(':username', $username);
             $statement->bindparam(':email', $email);
-            $statement->bindparam(':contact', $contact);
-            $statement->bindparam(':speciality', $speciality);
+            $statement->bindparam(':password', $password);
 
             $statement->execute();
 
@@ -72,6 +70,7 @@ class Crud
             return false;
         }
     }
+
 
     //function to update the attendee details 
     public function updateAttendeeDetails($fname, $lname, $dob, $email, $contact, $speciality, $id)

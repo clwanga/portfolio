@@ -33,6 +33,6 @@ $user = new user($pdo);
 $crud = new Crud($pdo);
 
 //create user admin once. should be there once.
-$user->insertUser('clwanga','maungilal@gmail.com', '1234');
+// $user->insertUser('clwanga','maungilal@gmail.com', '1234');
 
 ?>

@@ -2,7 +2,7 @@
 
 //this includes a session file that contains code that starts a session
 //by having it in the header page it will be included on every page. alloweing session capability to be used on every page across the website. 
-include 'session.php';
+require_once "includes/session.php";
 ?>
 
 <!doctype html>
@@ -30,14 +30,26 @@ include 'session.php';
                     <a class="nav-item nav-link" href="viewrecords.php">About</a>
                     <a class="nav-item nav-link" href="viewrecords.php">Services</a>
                     <a class="nav-item nav-link" href="viewrecords.php">Contact</a>
-                    <a class="nav-item nav-link" href="viewrecords.php">Challenge  <i class="fa fa-trophy fa-spin fa-fw" aria-hidden="true"></i></i></a>
+                    <a class="nav-item nav-link" href="viewrecords.php">Challenge <i class="fa fa-trophy" aria-hidden="true"></i></i></a>
                 </div>
                 <div class="navbar-nav ml-auto">
                     <?php if (!isset($_SESSION['user_id'])) { ?>
                         <button class="button"><a class="nav-item nav-link" aria-current="page" href="loginpage.php">Login</a></button>
                     <?php } else { ?>
-                        <a class="nav-item nav-link salutation" aria-current="page" href="#"> <span>Hello <?php echo $_SESSION['username'] . '!' ?></span></a>
-                        <button class="button"><a class="nav-item nav-link" aria-current="page" href="logout.php">Logout</a></button>
+                        <a class="nav-item nav-link salutation" aria-current="page" href="#"><span><?php echo $_SESSION['username']; ?></span> <i class="fa fa-circle" aria-hidden="true"></i></a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Update Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
+                            </ul>
+                        </li>
+
                     <?php } ?>
                 </div>
             </div>
