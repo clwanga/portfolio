@@ -39,15 +39,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 left_aside">
+            <div class="col-6 left_aside">
                 <a href="index.php">
-                    <h6><i class="fa fa-grav" aria-hidden="true"></i> Home</h6>
+                    <h6><i class="fa fa-home" aria-hidden="true"></i> Home</h6>
                 </a>
             </div>
-            <div class="col-sm-8">
+            <div class="col-4">
                         <form action="<?php htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
-                            <div class="user_icon">
-                                <h3>Log in</h3>
+                            <div class="header">
+                                <h3>Hello Again!</h3>
                                 <h6>Enter your credentials to access your account.</h6>
                             </div>
                             <div class="input-icons">
@@ -60,35 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
 
                             <div>
-                                <input type="submit" value="Login" id="login" class="general">
+                                <input type="submit" value="Continue" id="login" class="general">
                             </div>
                             <div id="signup">
-                                <p>Not a member? <span><a href="signup_page.php">Sign Up</a> </span></p>
+                                <p>Not a member? <span><a href="signup_page.php">Register</a> </span></p>
                             </div>
-
-                            <div class="container text-center">
-                                <div class="row g-2">
-                                    <div class="col">
-                                        <hr>
-                                    </div>
-                                    <div class="col-2">
-                                        <span class="or_text">OR</span>
-                                    </div>
-                                    <div class="col">
-                                        <hr>
-                                    </div>
-                                </div>
-
-                                <div class="container">
-                                    <div class="row justify-content-around social_media">
-                                        <div class="col-4">
-                                            <i class="fa fa-google" aria-hidden="true"></i><span class="social_name"> Google</span>
-                                        </div>
-                                        <div class="col-4">
-                                            <i class="fa fa-github" aria-hidden="true"></i><span class="social_name"> Github</span>
-                                        </div>
-                                    </div>
-                                </div>
                         </form>
                     </div>   
                 </div>

@@ -14,17 +14,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username_exists = $user->selectUsername($username);
 
     if ($email_exists) {
-        // $result_message = '<div class="alert alert-danger" id="message" role="alert">Email Account already exists!</div>';
-        $result_message = 'Email Account already exists!';
+        echo '<div class="alert alert-danger" id="message" role="alert">Email Account already exists!</div>';
     } else if ($username_exists) {
-        $result_message = '<div class="alert alert-danger" id="message" role="alert">Username exists! Try a different one</div>';
+        echo '<div class="alert alert-danger" id="message" role="alert">Username exists! Try a different one</div>';
     } else {
         $result = $crud->createAccount($full_name, $username, $email, $new_password);
 
         if (!$result) {
-            $result_message = '<div class="alert alert-danger" id="message" role="alert">Operation failed !</div>';
+            echo '<div class="alert alert-danger" id="message" role="alert">Operation failed !</div>';
         } else {
-            $result_message = '<div class="alert alert-success" id="message" role="alert">Account created successfully!</div>';
+            echo '<div class="alert alert-success" id="message" role="alert">Account created successfully!</div>';
         }
     }
 }
@@ -48,12 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-sm-8 left_aside">
+            <div class="col-6 left_aside">
                 <a href="index.php">
-                    <h6><i class="fa fa-grav" aria-hidden="true"></i> Home</h6>
+                    <h6><i class="fa fa-home" aria-hidden="true"></i> Home</h6>
                 </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
                 <form action="<?php htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
                     <div class="form_head">
                         <h6>START FOR FREE</h6>
