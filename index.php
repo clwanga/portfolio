@@ -8,11 +8,11 @@ require_once 'db/connection.php';
 <div class="banner">
     <p id="bannerHeader">Charles Maungila</p>
     <p id="supportingText">A Creative Freelancer & Full Stack Developer </p>
-    <p id="overview">Overview</p>
 </div>
 
 <!-- about start-->
-<div class="card mb-3 pt-5 aboutMe">
+<div class="card aboutMe" id="about">
+    <p id="overview">Overview</p>
     <div class="row g-0">
         <div class="col-md-4">
             <img src="images/me.jpg" class="img-fluid rounded-start" alt="my display picture">
@@ -47,14 +47,15 @@ require_once 'db/connection.php';
     </div>
 </div>
 <!-- about end -->
-<div class="servicesPart">
-    <h6><span id="border_below">What I</span> Do</h6>
-    <p id="services">My Services</p>
-</div>
-<div class="container my-5">
+
+<div id="service">
+    <div class="servicesPart">
+        <h6><span id="border_below">What I</span> Do</h6>
+        <p id="services">My Services</p>
+    </div>
     <div class="row g-3">
         <div class="col-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card details-card" style="width: 18rem;">
                 <div class="card-body">
                     <p><i class="fa fa-cog fa-3x"></i></p>
                     <h5 class="card-title">Website Development</h5>
@@ -63,7 +64,7 @@ require_once 'db/connection.php';
             </div>
         </div>
         <div class="col-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card details-card" style="width: 18rem;">
                 <div class="card-body">
                     <p><i class="fa fa-laptop fa-3x" aria-hidden="true"></i></p>
                     <h5 class="card-title">IT Services</h5>
@@ -72,7 +73,7 @@ require_once 'db/connection.php';
             </div>
         </div>
         <div class="col-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card details-card" style="width: 18rem;">
                 <div class="card-body">
                     <p><i class="fa fa-mobile fa-3x" aria-hidden="true"></i></p>
                     <h5 class="card-title">Mobile App Development</h5>
@@ -83,11 +84,12 @@ require_once 'db/connection.php';
     </div>
 </div>
 
-<div class="contact_section">
-    <h6><span id="border_below">Inter</span>ested ?</h6>
-    <p id="contact">Email Me</p>
-</div>
-<div class="container">
+
+<div id="contact-me">
+    <div class="contact_section" >
+        <h6><span id="border_below">Inter</span>ested ?</h6>
+        <p id="contact">Email Me</p>
+    </div>
     <div class="row justify-content-around">
         <div class="col-4">
             <img src="images/member.png" alt="contact me photo">
@@ -95,8 +97,7 @@ require_once 'db/connection.php';
         <div class="col-4">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title text-center"><i class="fa fa-telegram fa-3x" aria-hidden="true"></i></h5>
-                    <!-- <h6 class="card-subtitle mb-2 text-muted">Send me an email</h6> -->
+                    <h5 class="card-title text-center"><i class="fa-duotone fa-mailbox"></i></h5>
                     <div class="row">
                         <div class="col mb-3">
                             <label for="fname" class="form-label">First name</label>

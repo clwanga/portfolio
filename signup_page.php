@@ -59,8 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <h3>Create a new account<span>.</span></h3>
                         <h6>Already a Member? <a href="loginpage.php">Log In</a></h6>
                     </div>
-                    <div>
-                        <input class="input-field" type="text" value="" placeholder="Full name" name="name">
+                    <div class="names">
+                        <input type="text" value="" placeholder="First name" name="fname" id="fname" class="names-field">
+                        <input type="text" value="" placeholder="Last name" name="lname" class="names-field">
                     </div>
                     <div>
                         <input class="input-field" type="text" placeholder="Username" name="username">
