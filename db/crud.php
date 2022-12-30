@@ -14,19 +14,20 @@ class Crud
     }
 
     //function to insert a new record into the users database
-    public function createAccount($full_name, $username, $email, $password)
+    public function createAccount($firstname, $lastname, $username, $email, $password)
     {
 
         try {
 
             //define sql statement to be executed
-            $sql = "INSERT INTO users_details(full_name,username,email,password) VALUES(:full_name, :username, :email, :password)";
+            $sql = "INSERT INTO users_details(firstname,lastname,username,email,password) VALUES(:firstname, :lastname, :username, :email, :password)";
 
             //prepare the sql statement for execution
             $statement = $this->db->prepare($sql);
 
             //bind all placeholders to the actual values
-            $statement->bindparam(':full_name', $full_name);
+            $statement->bindparam(':firstname', $firstname);
+            $statement->bindparam(':lastname', $lastname);
             $statement->bindparam(':username', $username);
             $statement->bindparam(':email', $email);
             $statement->bindparam(':password', $password);

@@ -41,7 +41,7 @@ require_once 'db/connection.php';
 
                     </div>
                 </div>
-                <button type="button" class="btn btn-warning">Download CV</button>
+                <button type="button" class="cv-button">Download CV</button>
             </div>
         </div>
     </div>
@@ -53,31 +53,13 @@ require_once 'db/connection.php';
         <h6><span id="border_below">What I</span> Do</h6>
         <p id="services">My Services</p>
     </div>
-    <div class="row g-3">
+    <div class="row g-3 mx-auto">
         <div class="col-4">
-            <div class="card details-card" style="width: 18rem;">
+            <div class="card details-card">
                 <div class="card-body">
                     <p><i class="fa fa-cog fa-3x"></i></p>
                     <h5 class="card-title">Website Development</h5>
-                    <p class="card-text">Building and maintenance of websites this includes the layout, design, interactivity and Hosting</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card details-card" style="width: 18rem;">
-                <div class="card-body">
-                    <p><i class="fa fa-laptop fa-3x" aria-hidden="true"></i></p>
-                    <h5 class="card-title">IT Services</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card details-card" style="width: 18rem;">
-                <div class="card-body">
-                    <p><i class="fa fa-mobile fa-3x" aria-hidden="true"></i></p>
-                    <h5 class="card-title">Mobile App Development</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h6 class="card-text">Building and maintenance of websites this includes the layout, design, interactivity and Hosting</h6>
                 </div>
             </div>
         </div>
@@ -86,7 +68,7 @@ require_once 'db/connection.php';
 
 
 <div id="contact-me">
-    <div class="contact_section" >
+    <div class="contact_section">
         <h6><span id="border_below">Inter</span>ested ?</h6>
         <p id="contact">Email Me</p>
     </div>
@@ -95,27 +77,23 @@ require_once 'db/connection.php';
             <img src="images/member.png" alt="contact me photo">
         </div>
         <div class="col-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card send_email" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title text-center"><i class="fa-duotone fa-mailbox"></i></h5>
+                    <h5 class="card-title text-center"><i class="fa-sharp fa-solid fa-envelope fa-2x"></i></h5>
                     <div class="row">
-                        <div class="col mb-3">
-                            <label for="fname" class="form-label">First name</label>
-                            <input type="text" class="form-control" aria-label="First name" id="fname">
-                        </div>
-                        <div class="col mb-3">
-                            <label for="lname" class="form-label">Last name</label>
-                            <input type="text" class="form-control" aria-label="Last name" id="lname">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="text" class="form-control" id="email">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Message</span>
-                            <textarea class="form-control" aria-label="With textarea"></textarea>
-                        </div>
-                        <button type="button" class="btn btn-warning" id="send_email">send</button>
+                        <form action="">
+                            <div>
+                                <input type="text" class="input-fields" id="name" placeholder="Name">
+                            </div>
+                            <div>  
+                                <input type="text" class="input-fields" id="email" placeholder="Email">
+                            </div>
+                            <div>
+                                <textarea class="input-fields" placeholder="Message" id="message"></textarea>
+                            </div>
+                            <button type="button" id="send_email">send</button>
+                        </form>
+
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 * {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 ::-webkit-scrollbar{
   display: none;
@@ -12,7 +12,7 @@ html{
 nav {
     height: 70px;
     box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
-    background-color: #cccccc;
+    background-color: #e7e7e7;
 }
 .container{
   margin: 0;
@@ -40,11 +40,15 @@ nav {
     width: 100px;
 }
 .pages a:hover {
-    border-bottom: 2px solid black;
-    color: black;
+    border: 1px solid #005D70;
+    background-color: #FEFEFE;
+    color:#005D70 ;
 }
 .pages a {
-  font-weight:500;
+  color: #005D70;
+}
+.pages a span{
+  font-weight: bold;
 }
 .footer {
   background-color: black;
@@ -53,7 +57,7 @@ nav {
   padding-top: 25px;
 }
 .col i {
-  color: orange;
+  color: #005D70;
 }
 .col p span {
   font-size: small;
@@ -87,6 +91,8 @@ nav {
   font-weight: bold;
   line-height: 100px;
   text-align: center;
+  font-weight: bold;
+
 }
 .banner{
   padding-top: 150px;
@@ -107,16 +113,15 @@ nav {
   text-align: center;
   margin: 50px auto 100px auto;
   font-weight: bold;
-  border: 2px solid orange;
+  border: 2px solid #005D70;
   padding: 5px;
   border-radius: 20px;
   width: 150px;
 }
 #overview:hover{
   border: none;
+  border: 2px solid #72D8E6;
   cursor: pointer;
-  background-color: #b5cafd;
-  color: black;
 }
 #contact-me{
   background-color: #e7e7e7;
@@ -131,28 +136,28 @@ nav {
   text-align: center;
   margin: 20px auto 80px auto;
   font-weight: bold;
-  border: 2px solid orange;
+  border: 2px solid #005D70;
   padding: 5px;
   border-radius: 20px;
   width: 150px;
 }
 #services:hover{
-  background-color: #b5cafd;
   border: none;
+  border: 2px solid #72D8E6;
   cursor: pointer;
 }
 #contact{
   text-align: center;
   margin: 20px auto 50px auto;
   font-weight: bold;
-  border: 2px solid orange;
+  border: 2px solid #005D70;
   padding: 5px;
   border-radius: 20px;
   width: 150px;
 }
 #contact:hover{
-  background-color: #b5cafd;
   border: none;
+  border: 2px solid #72D8E6;
   cursor: pointer;
 }
 .contact_section h6{
@@ -170,20 +175,52 @@ nav {
   background-color:#e7e7e7;
 }
 .aboutMe h6{
-  color: orange;
+  color: #005D70;
 }
 .aboutMe h5{
   font-size:30px;
 }
+.cv-button{
+  border: none;
+  height: 40px;
+  background: #005D70;
+  padding: 10px;
+  color: #FEFEFE;
+  font-size: small;
+}
+.cv-button:hover{
+  background: #72D8E6;
+  color: #031C26;
+}
 #border_below{
-  border-bottom: 2px solid orange;
+  border-bottom: 2px solid #005D70;
   padding-bottom: 3px;
+}
+.details-card i{
+  color: #72D8E6;
+}
+.details-card h5 {
+  font-weight: bold;
+  font-size: medium;
+
+}
+.details-card h6{
+  font-size: small;
+}
+.details-card{
+  border: none;
+  color: #FEFEFE;
+  border-radius: 0px;
+  background:#005D70;
+  width: 250px;
+  height: 260px;
+  padding: 20px;
 }
 .details-card:hover{
   cursor: pointer;
-  transition: all 1s ease-in;
-  transform: rotateY(360deg);
-  background-color: whitesmoke;
+  color: #031C26;
+  transition:  1s ease-out;
+  background-color: #BFBFBF;
 }
 .cardHeading{
   margin-bottom: 25px;
@@ -191,7 +228,7 @@ nav {
 .insideContainer{
   border: 1px solid gray;
   border-radius: 5px;
-  border-color: orange;
+  border-color: #005D70;
   font-size: small;
   padding: 10px;
   margin: 30px 0px 30px auto;
@@ -210,4 +247,63 @@ nav {
 }
 .dropdown-menu a {
   font-size: small;
+}
+#send_email{
+  border: none;
+  width: 250px;
+  background-color:#005D70;
+  color: white;
+  height: 40px;
+  font-size: small;
+}
+#send_email:hover{
+  background: #72D8E6;
+  cursor: pointer;
+}
+.input-fields{
+  width: 250px;
+  height: 40px;
+  background: whitesmoke;
+  border: none;
+  margin-bottom: 20px;
+  font-size: small;
+  padding: 5px;
+  outline: none;
+}
+.input-fields:focus{
+  outline:4px solid #005D70;
+  background-color: #FEFEFE;
+  transition: all 0.1s ease-out;
+}
+#message{
+  height: 80px;
+}
+.send_email{
+  border: none;
+  border-radius: 0px;
+  background: #FEFEFE;
+}
+.send_email h5{
+  margin-bottom: 30px;
+  color: #005D70;
+}
+.update_profile_inputs{
+  width: 350px;
+  height: 50px;
+  padding: 5px;
+  padding-left: 30px;
+  border: none;
+  font-size: small;
+  outline: none;
+  background: whitesmoke;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.update_profile_inputs:focus{
+  outline: 2px solid #bbe1fa;
+  background:white;
+}
+.update_profile_inputs:hover{
+  cursor: pointer;
+  border: 2px solid #bbe1fa;
 }

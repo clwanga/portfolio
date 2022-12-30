@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $user->getUser($email, $new_password);
 
     if (!$result) {
-        //echo '<div class="alert alert-danger" role="alert">Incorrect username or password!</div>';
+        $message = '<div class="alert alert-danger" id="message" role="alert">Incorrect username or password!</div>';
     } else {
         $_SESSION['username'] = $result['username'];
         $_SESSION['user_id'] = $result['id'];
@@ -49,6 +49,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <div class="header">
                                 <h3>Hello Again!</h3>
                                 <h6>Enter your credentials to access your account.</h6>
+                            </div>
+                            <div>
+                                <?php
+                                    if (isset($message)) {
+                                        echo $message;
+                                    } 
+                                ?>      
                             </div>
                             <div class="input-icons">
                                 <i class="fa fa-user icon"></i>

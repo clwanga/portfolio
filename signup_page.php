@@ -4,10 +4,12 @@ require_once 'db/connection.php';
 
 //if data was submitted via post method then
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $full_name = $_POST['name'];
+    $firstname = $_POST['fname'];
+    $lastname = $_POST['lname'];
     $username = trim($_POST['username']);
     $email = trim($_POST['email']);
-    $new_password = md5($password . $email);
+    $password = $_POST['password'];
+    $new_password = md5($password . $email);    
 
     //call a function to check if the email exists in our database
     $email_exists = $user->selectEmail($email);
@@ -18,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else if ($username_exists) {
         echo '<div class="alert alert-danger" id="message" role="alert">Username exists! Try a different one</div>';
     } else {
-        $result = $crud->createAccount($full_name, $username, $email, $new_password);
+        $result = $crud->createAccount($firstname,$lastname, $username, $email, $new_password);
 
         if (!$result) {
             echo '<div class="alert alert-danger" id="message" role="alert">Operation failed !</div>';

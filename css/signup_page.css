@@ -96,6 +96,10 @@ form {
   outline: 4px solid #5195ea;
   background: white;
 }
+.input-field:hover{
+  cursor: pointer;
+  border: 2px solid #5195ea;
+}
 .names{
   display:block;
   width: 320px;
@@ -111,6 +115,10 @@ form {
   padding-left: 10px;
   font-size: small;
   outline: none;
+}
+.names-field:hover{
+  border: 2px solid  #5195ea;
+  cursor: pointer;
 }
 .names-field:focus{
   outline: 4px solid #5195ea;
