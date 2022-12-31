@@ -89,7 +89,7 @@ require_once "includes/session.php";
                             <input class="update_profile_inputs" type="date" placeholder="Date of Birth" name="date">
                         </div>
                         <div>
-                            <input class="update_profile_inputs" type="phone" placeholder="Phone" name="number">
+                            <input class="update_profile_inputs" type="text" placeholder="Phone" name="number">
                             <input class="update_profile_inputs" type="text" placeholder="Address" name="address">
                         </div>
                         <hr>
