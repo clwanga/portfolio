@@ -80,25 +80,27 @@ require_once "includes/session.php";
                     <form action="<?php htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
 
                         <div>
-                            <input class="update_profile_inputs" type="text" placeholder="Full Name" name="name">
-                        </div>
-                        <div>
-                            <textarea class="update_profile_inputs" placeholder="Description"></textarea>
-                        </div>
-                        <div>
+                            <input class="update_profile_inputs spacing" type="text" placeholder="Full Name" name="name">
                             <input class="update_profile_inputs" type="date" placeholder="Date of Birth" name="date">
                         </div>
+
                         <div>
-                            <input class="update_profile_inputs" type="text" placeholder="Phone" name="number">
+                            <input class="update_profile_inputs spacing " type="text" placeholder="Phone" name="number">
                             <input class="update_profile_inputs" type="text" placeholder="Address" name="address">
+                        </div>
+                        <div>
+                            <textarea class="update_profile_inputs description_height" placeholder="Description"></textarea>
                         </div>
                         <hr>
                         <div>
-                            <input class="update_profile_inputs" type="number" placeholder="Years of experience" name="experience">
-                            <input class="update_profile_inputs" type="text" placeholder="Freelancer" name="freelancer">
+                            <input class="update_profile_inputs spacing" type="number" placeholder="Years of experience" name="experience">
+                            <select class="update_profile_inputs" name="freelancer" id="freelancer">
+                                <option value="Available">Available</option>
+                                <option value="Not Available">Not Available</option>
+                            </select>
                         </div>
                         <div>
-                            <input class="update_profile_inputs" type="file" class="form-control" id="inputGroupFile04">
+                            <input class="update_profile_inputs spacing" type="file" class="form-control" id="inputGroupFile04">
                             <input class="update_profile_inputs" type="file" class="form-control" id="inputGroupFile04">
                         </div>
                     </form>
