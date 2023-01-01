@@ -136,7 +136,32 @@ class user
         }
     }
 
-    public function displayMessage($message){
-        echo '<div class="alert alert-danger" role="alert">$message</div>';
+    //function to update personal details in the database
+    public function updatePersonalDetails($name, $date, $phone_number, $address, $description, $experience, $id ){
+        try {
+            //sql statement to update records in a database
+            $sql = "UPDATE `personal_details` SET `name`=:name,`dob`=:date,`phone`=:phone_number,`address`=:address,`description`=:description,`experience`=experience WHERE id =:id";
+
+            //prepare the sql statement for execution
+            $statement = $this->db->prepare($sql);
+
+            //bind parameters for execution
+            $statement->bindparam(':name', $name);
+            $statement->bindparam(':date', $date);
+            $statement->bindparam(':phone_number', $phone_number);
+            $statement->bindparam(':address', $address);
+            $statement->bindparam(':description', $description);
+            $statement->bindparam(':experience', $experience);
+            $statement->bindparam(':id', $id);
+
+            //execute the statements
+            $statement->execute();
+
+            return true;
+
+        } catch (PDOException $e) {
+            $e->getMessage();
+            return false;
+        }
     }
 }

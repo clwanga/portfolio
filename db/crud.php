@@ -30,7 +30,7 @@ class Crud
             $statement->bindparam(':lastname', $lastname);
             $statement->bindparam(':username', $username);
             $statement->bindparam(':email', $email);
-            $statement->bindparam(':password', $password);
+            $statement->bindparam(':password', $password);      
 
             $statement->execute();
 

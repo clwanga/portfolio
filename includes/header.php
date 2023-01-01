@@ -3,6 +3,25 @@
 //this includes a session file that contains code that starts a session
 //by having it in the header page it will be included on every page. alloweing session capability to be used on every page across the website. 
 require_once "includes/session.php";
+require_once "db/connection.php";
+
+//we have to check if data was submitted via post method and manipulated the transferred data.
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $date = $_POST['dob'];
+    $phone_number = $_POST['number'];
+    $address = $_POST['address'];
+    $description = $_POST['description'];
+    $experience = $_POST['experience'];
+
+    $result = $user->updatePersonalDetails($name, $date, $phone_number, $address, $description, $experience, $id);
+
+    if (!$result) {
+        echo '<div class="alert alert-danger" id="message" role="alert">Operation failed !</div>';
+    } else {
+        echo '<div class="alert alert-success" id="message" role="alert">Details updated successfully!</div>';
+    }
+}
 ?>
 
 <!doctype html>
@@ -78,18 +97,16 @@ require_once "includes/session.php";
                 </div>
                 <div class="modal-body">
                     <form action="<?php htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
-
                         <div>
                             <input class="update_profile_inputs spacing" type="text" placeholder="Full Name" name="name">
                             <input class="update_profile_inputs" type="date" placeholder="Date of Birth" name="date">
                         </div>
-
                         <div>
-                            <input class="update_profile_inputs spacing " type="text" placeholder="Phone" name="number">
+                            <input class="update_profile_inputs spacing " type="tel" placeholder="Phone number" name="number">
                             <input class="update_profile_inputs" type="text" placeholder="Address" name="address">
                         </div>
                         <div>
-                            <textarea class="update_profile_inputs description_height" placeholder="Description"></textarea>
+                            <textarea class="update_profile_inputs description_height" placeholder="Description" name="description"></textarea>
                         </div>
                         <hr>
                         <div>
