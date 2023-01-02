@@ -5,6 +5,10 @@
 require_once "includes/session.php";
 require_once "db/connection.php";
 
+//fetch an id
+$personal_details = $user->getPersonalDetails();
+$array_of_personal_details = $personal_details->fetch(PDO::FETCH_ASSOC);
+
 //we have to check if data was submitted via post method and manipulated the transferred data.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
@@ -12,14 +16,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone_number = $_POST['number'];
     $address = $_POST['address'];
     $description = $_POST['description'];
+    $bio = $_POST['bio'];
     $experience = $_POST['experience'];
+    $id = $_POST['id'];
 
-    $result = $user->updatePersonalDetails($name, $date, $phone_number, $address, $description, $experience, $id);
+    $result = $user->updatePersonalDetails($name, $date, $bio, $phone_number, $address, $description, $experience, $id);
 
     if (!$result) {
-        echo '<div class="alert alert-danger" id="message" role="alert">Operation failed !</div>';
+        $message = '<div class="alert alert-danger" id="message" role="alert">Operation failed !</div>';
     } else {
-        echo '<div class="alert alert-success" id="message" role="alert">Details updated successfully!</div>';
+        $message = '<div class="alert alert-success" id="message" role="alert">Details updated successfully!</div>';
     }
 }
 ?>
@@ -97,6 +103,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="modal-body">
                     <form action="<?php htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
+                        <?php
+                        if (isset($message)) {
+                            echo $message;
+                        }
+                        ?>
+                        <input type="hidden" value="<?php echo $array_of_personal_details['id']; ?>" name="id">
                         <div>
                             <input class="update_profile_inputs spacing" type="text" placeholder="Full Name" name="name">
                             <input class="update_profile_inputs" type="date" placeholder="Date of Birth" name="date">
@@ -106,7 +118,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <input class="update_profile_inputs" type="text" placeholder="Address" name="address">
                         </div>
                         <div>
-                            <textarea class="update_profile_inputs description_height" placeholder="Description" name="description"></textarea>
+                            <textarea class="update_profile_inputs description_height spacing" placeholder="Description" name="description" maxlength="200"></textarea>
+                            <textarea class="update_profile_inputs description_height" placeholder="Short Bio" name="bio" maxlength="50"></textarea>
                         </div>
                         <hr>
                         <div>
@@ -120,12 +133,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <input class="update_profile_inputs spacing" type="file" class="form-control" id="inputGroupFile04">
                             <input class="update_profile_inputs" type="file" class="form-control" id="inputGroupFile04">
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <input type="submit" value="Save Changes" class="btn btn-primary" />
+                        </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Update Information</button>
-                </div>
+
             </div>
         </div>
     </div>

@@ -137,10 +137,11 @@ class user
     }
 
     //function to update personal details in the database
-    public function updatePersonalDetails($name, $date, $phone_number, $address, $description, $experience, $id ){
+    public function updatePersonalDetails($name, $date, $bio, $phone_number, $address, $description, $experience, $id)
+    {
         try {
             //sql statement to update records in a database
-            $sql = "UPDATE `personal_details` SET `name`=:name,`dob`=:date,`phone`=:phone_number,`address`=:address,`description`=:description,`experience`=experience WHERE id =:id";
+            $sql = "UPDATE `personal_details` SET `name`=:name, `bio`=:bio, `dob`=:date,`phone`=:phone_number,`address`=:address,`description`=:description,`experience`=experience WHERE `id` =:id";
 
             //prepare the sql statement for execution
             $statement = $this->db->prepare($sql);
@@ -151,6 +152,7 @@ class user
             $statement->bindparam(':phone_number', $phone_number);
             $statement->bindparam(':address', $address);
             $statement->bindparam(':description', $description);
+            $statement->bindparam(':bio', $bio);
             $statement->bindparam(':experience', $experience);
             $statement->bindparam(':id', $id);
 
@@ -161,6 +163,23 @@ class user
 
         } catch (PDOException $e) {
             $e->getMessage();
+            return false;
+        }
+    }
+
+    //function to get all registered attendees
+    public function getPersonalDetails()
+    {
+        try {
+            //sql statements
+            $sql = "SELECT * FROM `personal_details`";
+
+            //query data
+            $result = $this->db->query($sql);
+
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
             return false;
         }
     }

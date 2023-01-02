@@ -3,11 +3,15 @@ $title = "Home";
 require_once 'includes/header.php';
 require_once 'db/connection.php';
 
+$results = $user->getPersonalDetails();
+//convert the results into an array
+$fetched_values = $results->fetch(PDO::FETCH_ASSOC);
+
 ?>
 
 <div class="banner">
-    <p id="bannerHeader">Charles Maungila</p>
-    <p id="supportingText">A Creative Freelancer & Full Stack Developer </p>
+    <p id="bannerHeader"><?php echo $fetched_values['name']; ?></p>
+    <p id="supportingText"><?php echo $fetched_values['bio']; ?></p>
 </div>
 
 <!-- about start-->
@@ -23,20 +27,32 @@ require_once 'db/connection.php';
                     <h6>Discover</h6>
                     <h5 class="card-title"><span id="border_below">Abou</span>t Me</h5>
                 </div>
-                <p class="card-text">My name is Charles Lwanga Maungila. I'm a full stack developer based in Dar es salaam, Tanzania. I'm very passionate and dedicated to my work. With 2 years of experience as a professional Full stack developer, I have acquired the skills necessary to build great and premium websites. </p>
+                <p class="card-text"><?php echo $fetched_values['description']; ?> </p>
                 <div class="container insideContainer">
                     <div class="row justify-content-start">
                         <div class="col-5">
-                            <p>Name: Charles Lwanga Maungila</p>
-                            <p>Phone: +255 758 607 205</p>
-                            <p>Experience: 2 Years</p>
-                            <p>LinkedIn: Charles Maungila</p>
+                            <p>Name: <?php echo $fetched_values['name']; ?></p>
+                            <p>Phone: <?php echo "+255" . $fetched_values['phone']; ?></p>
+                            <p>Experience: <?php echo $fetched_values['experience']; ?></p>
+                            <p>LinkedIn: <?php echo $fetched_values['linkedin']; ?></p>
                         </div>
                         <div class="col-5">
-                            <p>Age: 26</p>
-                            <p>Address: Dar-es-salaam, Tanzania</p>
-                            <p>Freelance: Available</p>
-                            <p>Github: clwanga</p>
+                            <p>Age:
+                                <?php
+                                $current_year = date("Y");
+                                $date_of_birth = $fetched_values['dob']; //from the database
+
+                                $date = date_create($date_of_birth); //created a new datetime object
+                                $year_of_birth = date_format($date, "Y"); //formatted the new date time created object to return year only
+
+                                $age = $current_year - $year_of_birth;
+                                
+                                echo $age;
+                                ?>
+                            </p>
+                            <p>Address: <?php echo $fetched_values['address']; ?>, Tanzania</p>
+                            <p>Freelance: <?php echo $fetched_values['freelancer']; ?></p>
+                            <p>Github: <?php echo $fetched_values['github']; ?></p>
                         </div>
 
                     </div>
@@ -85,7 +101,7 @@ require_once 'db/connection.php';
                             <div>
                                 <input type="text" class="input-fields" id="name" placeholder="Name">
                             </div>
-                            <div>  
+                            <div>
                                 <input type="text" class="input-fields" id="email" placeholder="Email">
                             </div>
                             <div>
