@@ -137,11 +137,11 @@ class user
     }
 
     //function to update personal details in the database
-    public function updatePersonalDetails($name, $date, $bio, $phone_number, $address, $description, $experience, $id)
+    public function updatePersonalDetails($name, $date, $bio, $phone_number, $address, $description, $experience, $id, $linkedin, $github)
     {
         try {
             //sql statement to update records in a database
-            $sql = "UPDATE `personal_details` SET `name`=:name, `bio`=:bio, `dob`=:date,`phone`=:phone_number,`address`=:address,`description`=:description,`experience`=experience WHERE `id` =:id";
+            $sql = "UPDATE `personal_details` SET `name`=:name, `bio`=:bio, `dob`=:date,`phone`=:phone_number,`address`=:address,`description`=:description,`experience`=:experience, `linkedin`=:linkedin, `github`=:github WHERE `id` =:id";
 
             //prepare the sql statement for execution
             $statement = $this->db->prepare($sql);
@@ -154,6 +154,8 @@ class user
             $statement->bindparam(':description', $description);
             $statement->bindparam(':bio', $bio);
             $statement->bindparam(':experience', $experience);
+            $statement->bindparam(':linkedin', $linkedin);
+            $statement->bindparam(':github', $github);
             $statement->bindparam(':id', $id);
 
             //execute the statements

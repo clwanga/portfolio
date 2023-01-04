@@ -12,21 +12,18 @@ $array_of_personal_details = $personal_details->fetch(PDO::FETCH_ASSOC);
 //we have to check if data was submitted via post method and manipulated the transferred data.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
-    $date = $_POST['dob'];
+    $date = $_POST['date'];
     $phone_number = $_POST['number'];
     $address = $_POST['address'];
     $description = $_POST['description'];
     $bio = $_POST['bio'];
     $experience = $_POST['experience'];
     $id = $_POST['id'];
+    $linkedin = $_POST['linkedin'];
+    $github = $_POST['github'];
 
-    $result = $user->updatePersonalDetails($name, $date, $bio, $phone_number, $address, $description, $experience, $id);
+    $result = $user->updatePersonalDetails($name, $date, $bio, $phone_number, $address, $description, $experience, $linkedin, $github, $id);
 
-    if (!$result) {
-        $message = '<div class="alert alert-danger" id="message" role="alert">Operation failed !</div>';
-    } else {
-        $message = '<div class="alert alert-success" id="message" role="alert">Details updated successfully!</div>';
-    }
 }
 ?>
 
@@ -103,11 +100,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="modal-body">
                     <form action="<?php htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
-                        <?php
-                        if (isset($message)) {
-                            echo $message;
-                        }
-                        ?>
                         <input type="hidden" value="<?php echo $array_of_personal_details['id']; ?>" name="id">
                         <div>
                             <input class="update_profile_inputs spacing" type="text" placeholder="Full Name" name="name">
@@ -133,13 +125,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <input class="update_profile_inputs spacing" type="file" class="form-control" id="inputGroupFile04">
                             <input class="update_profile_inputs" type="file" class="form-control" id="inputGroupFile04">
                         </div>
+                        <hr>
+                        <div>
+                            <input class="update_profile_inputs spacing " type="text" placeholder="LinkedIn" name="linkedin">
+                            <input class="update_profile_inputs" type="text" placeholder="Github" name="github">
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <input type="submit" value="Save Changes" class="btn btn-primary" />
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
