@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $linkedin = $_POST['linkedin'];
     $github = $_POST['github'];
 
-    $result = $user->updatePersonalDetails($name, $date, $bio, $phone_number, $address, $description, $experience, $linkedin, $github, $id);
+    $result = $user->updatePersonalDetails($name, $date, $bio, $phone_number, $address, $description, $experience, $id, $linkedin, $github);
 
 }
 ?>
