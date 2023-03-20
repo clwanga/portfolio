@@ -8,16 +8,14 @@ $results = $user->getPersonalDetails();
 $fetched_values = $results->fetch(PDO::FETCH_ASSOC);
 
 //components
-$serviceCardDetails = '<div class="card details-card">
-<a class="service_link" href="">
-    <div class="card-body">
-        <p><i class="fa-solid fa-square-plus fa-3x"></i></p>
-        <h5 class="card-title">Add New Service</h5>
-    </div>
-</a>
-</div>';
+//set the class for the card
+if (isset($_SESSION['user_id'])) {
+    $displayStyleValue = "block";
+} else {
+    $displayStyleValue = "none";
+}
 
-
+$dataFromDatabase = true;
 
 ?>
 
@@ -83,13 +81,27 @@ $serviceCardDetails = '<div class="card details-card">
     </div>
     <div class="row g-3 mx-auto">
         <div class="col-4">
-            <?php
-            if (isset($_SESSION['user_id'])) {
-                if (isset($serviceCardDetails)) {
-                    echo $serviceCardDetails;
-                }
-            }   
-            ?>
+            <?php if (isset($displayStyleValue)) { ?>
+                <div class="card details-card" style="display:<?php echo $displayStyleValue ?>">
+                    <a class="service_link">
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary-outline" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Add New Service
+                            </button>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
+            <?php while (!$dataFromDatabase) { ?>
+                <div class="card details-card">
+                    <div class="card-body">
+                        <p><i class="fa-solid fa-square-plus fa-3x"></i></p>
+                        <h5 class="card-title">Service Name</h5>
+                        <p>Service description</p>
+                        <button class="btn btn-success outline">view</button>
+                    </div>
+                </div>
+            <?php } ?>
 
         </div>
     </div>
@@ -130,6 +142,27 @@ $serviceCardDetails = '<div class="card details-card">
         </div>
     </div>
 </div>
+
+<!-- beginning of add service modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="<?php htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
+            <div>
+                <input class="update_profile_inputs spacing" type="text" placeholder="Service Name" name="service_name">
+                <input class="update_profile_inputs spacing" type="text" placeholder="Link" name="service_link">
+                <textarea class="update_profile_inputs description_height spacing" placeholder="Description" name="service_description" maxlength="200"></textarea>
+            </div>
+            <hr>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <input type="submit" value="Save Changes" class="btn btn-primary-outline" />
+            </div>
+        </form>
+    </div>
+
+</div>  
+
+<!-- end of the modal -->
 
 
 <?php
