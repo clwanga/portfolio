@@ -315,3 +315,10 @@ nav {
 .position_right{
   float: right;
 }
+
+.service_link{
+  all: unset;
+}
+.card-title h5{
+  text-transform: capitalize;
+}

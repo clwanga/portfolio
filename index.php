@@ -7,6 +7,18 @@ $results = $user->getPersonalDetails();
 //convert the results into an array
 $fetched_values = $results->fetch(PDO::FETCH_ASSOC);
 
+//components
+$serviceCardDetails = '<div class="card details-card">
+<a class="service_link" href="">
+    <div class="card-body">
+        <p><i class="fa-solid fa-square-plus fa-3x"></i></p>
+        <h5 class="card-title">Add New Service</h5>
+    </div>
+</a>
+</div>';
+
+
+
 ?>
 
 <div class="banner">
@@ -46,7 +58,7 @@ $fetched_values = $results->fetch(PDO::FETCH_ASSOC);
                                 $year_of_birth = date_format($date, "Y"); //formatted the new date time created object to return year only
 
                                 $age = $current_year - $year_of_birth;
-                                
+
                                 echo $age;
                                 ?>
                             </p>
@@ -71,13 +83,14 @@ $fetched_values = $results->fetch(PDO::FETCH_ASSOC);
     </div>
     <div class="row g-3 mx-auto">
         <div class="col-4">
-            <div class="card details-card">
-                <div class="card-body">
-                    <p><i class="fa fa-cog fa-3x"></i></p>
-                    <h5 class="card-title">Website Development</h5>
-                    <h6 class="card-text">Building and maintenance of websites this includes the layout, design, interactivity and Hosting</h6>
-                </div>
-            </div>
+            <?php
+            if (isset($_SESSION['user_id'])) {
+                if (isset($serviceCardDetails)) {
+                    echo $serviceCardDetails;
+                }
+            }   
+            ?>
+
         </div>
     </div>
 </div>
