@@ -3,6 +3,20 @@ $title = "Home";
 require_once 'includes/header.php';
 require_once 'db/connection.php';
 
+//insert details into the database
+if (isset($_POST['submit'])) {
+    $name = $_POST['service_name'];
+    $link = $_POST['service_link'];
+    $description = $_POST['service_description'];
+
+    $result = $user->insertNewService($name, $link, $description);
+    if ($result) {
+        $message = "toast.success('Details inserted successfully', {timeout: 2000})";
+    }else {
+        $message = "toast.error('Process failed',{timeout: 2000})";
+    }
+}
+
 $results = $user->getPersonalDetails();
 //convert the results into an array
 $fetched_values = $results->fetch(PDO::FETCH_ASSOC);
@@ -146,21 +160,27 @@ $dataFromDatabase = true;
 <!-- beginning of add service modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="<?php htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
-            <div>
-                <input class="update_profile_inputs spacing" type="text" placeholder="Service Name" name="service_name">
-                <input class="update_profile_inputs spacing" type="text" placeholder="Link" name="service_link">
-                <textarea class="update_profile_inputs description_height spacing" placeholder="Description" name="service_description" maxlength="200"></textarea>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add a new service</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <hr>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <input type="submit" value="Save Changes" class="btn btn-primary-outline" />
+            <div class="modal-body">
+                <form action="<?php htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
+                    <div>
+                        <input class="update_profile_inputs spacing" type="text" placeholder="Service Name" name="service_name">
+                        <input class="update_profile_inputs spacing" type="text" placeholder="Link" name="service_link">
+                        <textarea class="update_profile_inputs description_height spacing" placeholder="Description" name="service_description" maxlength="200"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" value="Save Changes" class="btn btn-primary-outline" />
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
-
-</div>  
+</div>
 
 <!-- end of the modal -->
 

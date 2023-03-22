@@ -185,4 +185,24 @@ class user
             return false;
         }
     }
+    public function insertNewService($name, $link, $description){
+        try {
+            //sql statement
+            $sql = "INSERT INTO `services`(`service_name`, `service_descripition`, `service_link`) VALUES (:service_name,:service_description,:service_link)";
+            //prepare sql statement
+            $statement = $this->db->prepare($sql);
+            //bind and execute
+            $statement->bindparam(':service_name', $name);
+            $statement->bindparam(':service_link', $link);
+            $statement->bindparam(':service_description', $description);
+            //execute statement
+            $statement->execute();
+
+            return true;
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 }

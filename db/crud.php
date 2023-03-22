@@ -63,7 +63,7 @@ class Crud
             $statement = $this->db->prepare($sql);
             $statement->bindparam(':id', $id);
             $statement->execute();
-            $result = $statement->fetch();
+            $result = $statement->fetch();  
 
             return $result;
         } catch (PDOException $e) {
